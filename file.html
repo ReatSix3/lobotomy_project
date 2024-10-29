@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Click to Reveal Coordinates</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
   /* Container to center the shape */
   .container {
@@ -17,37 +20,51 @@
   /* Slanted rectangle */
   .slanted-rectangle {
     position: absolute; /* Position relative to the body */
-    top: 110px;
-    left: -20px;
-    width: 700px;
+    top: 135px;
+    left: -170px;
+    width: 800px;
     height: 65px;
-    background-color: #4CAF50;
+    background-color: black;
+    border: 2.5px solid #1bde97;
     transform: rotate(-15deg); /* Rotate to create the slanted effect */
     transform-origin: top left; /* Set the rotation origin to top-left */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff; /* Text color */
-    font-size: 16px;
-    font-family: Arial, sans-serif;
     text-align: center;
-    font-weight: bold;
+    /* font-weight: bold; */
+    
   }
-  
+  .slanted-rectangle .big-letter {
+    font-family: 'Anton', sans-serif; /* Using Anton font */
+    font-size: 64px; /* Larger size for the 'P' */
+    color: #1bde97; /* Text color */
+    text-transform: uppercase;
+  }
+
+  .slanted-rectangle .small-text {
+    font-family: 'Anton', sans-serif; /* Same font for consistency */
+    font-size: 55px; /* Smaller size for 'ROFILE' */
+    color: #1bde97;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Adds a bit of spacing to match the style */
+  }
+
   .slanted-rectangle2 {
     position: absolute; /* Position relative to the body */
     top: 820px;
     left: 1200px;
     width: 700px;
     height: 700px;
-    background-color: #4CAF50;
+    background-color: black;
+    border: 2.5px solid #1bde97;
     transform: rotate(-20deg); /* Rotate to create the slanted effect */
     transform-origin: top left; /* Set the rotation origin to top-left */
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff; /* Text color */
-    font-size: 16px;
+    font-size: 32px;
     font-family: Arial, sans-serif;
     text-align: center;
     font-weight: bold;
@@ -55,27 +72,79 @@
   /* Menu Bar */
   .menu-bar{
     position: absolute;
-    top: 100px;
+    top: 90px;
     left: 25px;
     width: 215px;
     height: 750px;
-    background-color: yellowgreen;
+    background-color: black;
+    border: 2.5px solid #1bde97;
   }
   .menu2-bar{
     position: absolute;
-    top: 0px;
-    left: 400px;
+    top: 10px;
+    left: 330px;
     width: 3000px;
-    height: 65px;
-    background-color: aqua;
+    height: 55px;
+    background-color: black;
+    border: 2.5px solid #1bde97;
   }
   .main-screen{
     position: absolute;
     top: 83px;
     left: 265px;
     width: 1255px;
-    height: 725px;
-    background-color: purple;
+    height: 720px;
+    background-color: black;
+    border: 2.5px solid #e3e39a;
+  }
+  .button, .button2, .button3, .button4, .button5, .button6 {
+    display: flex;
+    position: absolute;
+    background-color: black;
+    border: 2.5px solid #1bde97;
+    width: 215px;
+    height: 60px; /* Set height to 60px for all buttons */
+    left: 25px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 24px;
+    color:#1bde97;
+    font-weight: bold;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    text-align: center; /* Center-aligns text inside the box */
+}
+  .button:hover, .button2:hover, .button3:hover, .button4:hover, .button5:hover, .button6:hover {
+    background-color: #71754a;
+    border: 2.5px solid #fdfea3;
+    color: #fdfea3;
+}
+  .back_button {
+    display: flex;
+    position: absolute;
+    background-color: black;
+    border: 2.5px solid #1bde97;
+    width: 100px;
+    height: 60px;
+    
+  }
+  /* Positioning for each button */
+  .button { top: 195px; }
+  .button2 { top: 275px; }
+  .button3 { top: 355px; }
+  .button4 { top: 435px; }
+  .button5 { top: 515px; }
+  .button6 { top: 595px; }
+  .exit_button {
+    display: flex;
+    position: absolute;
+    background-color: black;
+    color: #1bde97;
+    font-family: 'Anton', sans-serif; /* Using Anton font */
+    font-size: 64px;
+    top: 735.5px;
+    left: 1437px;
+    width: 100px;
+    height: 60px;
   }
   /* Make body full screen and clickable */
   body {
@@ -85,7 +154,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(224, 181, 64);
+    background-color: black;
     cursor: pointer;
     font-family: Arial, sans-serif;
     overflow: hidden; /* Prevents scrolling */
@@ -95,7 +164,8 @@
   #coordinates {
     position: absolute;
     padding: 10px;
-    background-color: #1bde97;
+    background-color: black;
+    border: 5px solid #1bde97;
     color: #fff;
     border-radius: 5px;
     pointer-events: none; /* Allows clicking through the coordinates box */
@@ -107,14 +177,39 @@
         <div class="main-screen"></div>
         <div class="menu2-bar"></div>
         <div class="menu-bar"></div>
-        <div class="slanted-rectangle">Profile</div>
-        <div class="slanted-rectangle2"></div>
+        <div class="slanted-rectangle">
+          <span class="big-letter">P</span><span class="small-text">rofile</span>
+        </div>
+        <div class="button">1. Introduction</div>
+        <div class="button2">2. About Me</div>
+        <div class="button3">3. Skills</div>
+        <div class="button4">4. Projects</div>
+        <div class="button5">5. Experience</div>
+        <div class="button6">6. Contact</div>
+        <div class="slanted-rectangle2">Exit</div>
+        <div class="exit_button">EXIT</div>
       </div>
       
 <!-- Coordinate display element -->
 <div id="coordinates">Click anywhere to get coordinates</div>
-
+<audio id="click_sound" src="click_sound.mp3" preload="auto"></audio>
 <script>
+// Get the audio element
+const hoverSound = document.getElementById('click_sound');
+
+// Function to play sound
+function playSound() {
+  hoverSound.currentTime = 0; // Reset audio to the start
+  hoverSound.play(); // Play the audio
+}
+
+// Get all buttons that should play the sound
+const buttons = document.querySelectorAll('.button, .button2, .button3, .button4, .button5, .button6');
+
+// Add event listener to each button
+buttons.forEach(button => {
+  button.addEventListener('mouseenter', playSound);
+});
   // Select the coordinate display element
   const coordinatesDisplay = document.getElementById('coordinates');
 
