@@ -208,16 +208,45 @@
     border: 2.5px solid #1bde97;
     width: 100px;
     height: 60px;
-    
   }
   /* Positioning for each button */
-  .button { top: 195px; }
+  .button { top: 185px; }
   .button2 { top: 275px; }
-  .button3 { top: 355px; }
-  .button4 { top: 435px; }
-  .button5 { top: 515px; }
-  .button6 { top: 595px; }
-  .exit_button {
+  .button3 { top: 365px; }
+  .button4 { top: 455px; }
+  .button5 { top: 545px; }
+  .button6 { top: 635px; }
+  .top_button1, .top_button2, .top_button3, .top_button4{
+    display: flex;
+    position: absolute;
+    background-color: black;
+    top: 13px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 24px;
+    color:#1bde97;
+    font-weight: bold;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    text-align: center; /* Center-aligns text inside the box */
+  }
+  .top_button1, .top_button2, .top_button3{
+    width: 160px;
+    height: 50px; /* Set height to 60px for all buttons */
+  }
+  .top_button4{
+    width: 200px;
+    height: 50px;
+  }
+  .top_button1 { left: 568px; }
+  .top_button2 { left: 768px; }
+  .top_button3 { left: 968px; }
+  .top_button4 { left: 1168px; }
+  .top_button1:hover, .top_button2:hover, .top_button3:hover, .top_button4:hover{
+    background-color: #71754a;
+    border: 2.5px solid #fdfea3;
+    color: #fdfea3;
+}
+  .version_button {
     display: flex;
     position: absolute;
     background-color: black;
@@ -253,6 +282,60 @@
     border-radius: 5px;
     pointer-events: none; /* Allows clicking through the coordinates box */
   }
+
+  .neon-glow {
+      position: fixed;
+      bottom: -30px; /* Position from the bottom of the screen */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 70px; /* Increase this value to make it taller */
+      background-color: #1bde97;
+      box-shadow: 0 0 15px #1bde97, 0 0 30px #1bde97, 0 0 45px #1bde97, 0 0 60px #1bde97;
+      opacity: 0.35; /* Adjust opacity as needed */
+    }
+  .neon-glow3 {
+    position: absolute; /* Position relative to the body */
+    top: 75px;
+    left: -20px;
+    width: 1250px;
+    height: 95px;
+    background-color: #1bde97;
+    box-shadow: 0 0 15px #1bde97, 0 0 30px #1bde97, 0 0 45px #1bde97, 0 0 60px #1bde97;
+    opacity: 0.35; /* Adjust opacity as needed */
+    transform: rotate(-15deg); /* Rotate to create the slanted effect */
+    transform-origin: top left; /* Set the rotation origin to top-left */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Text color */
+    font-size: 32px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+  }
+    .square {
+      position: absolute;
+      background-color: #1bde97;
+      opacity: 0.7;
+      border-radius: 5px;
+    }
+    .mute-button {
+      position: fixed;
+      top: 13.5px;
+      right: 45px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  .mute-button.unmuted:hover #mute-icon {
+    content: url("unmute_button5_2.png"); /* Image for hover when unmuted */
+  }
+
+  /* Hover effect for muted state */
+  .mute-button.muted:hover #mute-icon {
+    content: url("mute_button5_2.png"); /* Image for hover when muted */
+  }
 </style>
 </head>
 <body>
@@ -260,6 +343,12 @@
         <div class="main-screen"></div>
         <div class="menu2-bar"></div>
         <div class="menu-bar"></div>
+        <div class="neon-glow2"></div>
+        <div class="top_button1">Profile</div>
+        <div class="top_button2">Projects</div>
+        <div class="top_button3">Resume</div>
+        <div class="top_button4">Suggestions</div>
+        <div class="neon-glow3"></div>
         <div class="slanted-rectangle">
           <span class="big-letter">P</span><span class="small-text">rofile</span>
         </div>
@@ -269,44 +358,99 @@
         <div class="button4">4. Projects</div>
         <div class="button5">5. Experience</div>
         <div class="button6">6. Contact</div>
+        <div class="neon-glow"></div>
+        <div class="neon-glow"></div>
         <div class="slanted-rectangle2">Exit</div>
-        <div class="exit_button">EXIT</div>
+        <div class="version_button">v1.0</div>
         <div class="introduction"> INTRODUCTION</div>
-        <div class="intro-text1"> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+        <div class="intro-text1">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
           labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
           commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p></div>
-          <div class="intro-text2">  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
+          </p>
+        </div>
+        <div class="intro-text2">  
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
             eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam 
             voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
             voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, 
             sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-          </p></div>
-          <div class="intro-text3"><p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi 
+        </p>
+      </div>
+          <div class="intro-text3">
+            <p>
+              Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi 
             consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel 
             illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-          </p></div>
+          </p>
+        </div>
         <div class="intro-potrait">
           <img src="ring_sang_potrait.jpg" alt="Portrait Image">
         </div>
         <div class="intro-text">REAT</div>
         <div class="intro-text-line"></div>
+
       
 <!-- Coordinate display element -->
-<div id="coordinates">Click anywhere to get coordinates</div>
-<audio id="click_sound" src="click_sound.mp3" preload="auto"></audio>
-<audio id="background-music" src="main_menu_theme.mp3" autoplay loop></audio>
-<script>
-document.getElementById("background-music").volume = 0.45; // Sets volume to 50%
+  <!-- Mute/Unmute Button -->
+    <button class="mute-button" onclick="toggleMute()">
+      <img id="mute-icon" src="unmute_button5.png" alt="Mute Button" width="80" height="50">
+  </button>
 
-document.addEventListener('click', function() {
-    const backgroundMusic = document.getElementById('background-music');
+  <div id="coordinates">Click anywhere to get coordinates</div>
+  
+  <!-- Audio elements -->
+  <audio id="click_sound" src="click_sound.mp3" preload="auto"></audio>
+  <audio id="background-music" src="main_menu_theme.mp3" loop></audio>
+  <script>
+
+  // Function to toggle mute/unmute
+  document.getElementById("background-music").volume = 0.45;
+
+// Mute/Unmute Function
+    const backgroundMusic = document.getElementById("background-music");
+    backgroundMusic.volume = 0.45;
+    const muteIcon = document.getElementById("mute-icon");
+    const muteButton = document.querySelector(".mute-button");
+
+  // Attempt to autoplay on load; may be blocked in some browsers
+    window.addEventListener("load", () => {
+        if (backgroundMusic.muted) {
+          muteButton.classList.add("muted");
+          muteIcon.src = "mute_button5.png";
+        } else {
+          muteButton.classList.add("unmuted");
+          muteIcon.src = "unmute_button5.png";
+        }
+    
+        backgroundMusic.play().catch(() => {
+          console.log("Autoplay blocked; waiting for user interaction.");
+        });
+      });
+
+  // Fallback to play audio on user interaction if autoplay is blocked
+  document.addEventListener("click", () => {
     if (backgroundMusic.paused) {
-        backgroundMusic.play();
+      backgroundMusic.play().catch(error => console.log(error));
     }
-});
+  });
 
+  // Function to toggle mute/unmute
+      function toggleMute() {
+        if (backgroundMusic.muted) {
+          backgroundMusic.muted = false;
+          muteIcon.src = "unmute_button5.png"; // Default unmuted icon
+          muteButton.classList.remove("muted");
+          muteButton.classList.add("unmuted");
+        } else {
+          backgroundMusic.muted = true;
+          muteIcon.src = "mute_button5.png"; // Default muted icon
+          muteButton.classList.remove("unmuted");
+          muteButton.classList.add("muted");
+        }
+      }
 // Get the audio element
 const hoverSound = document.getElementById('click_sound');
 
@@ -317,7 +461,7 @@ function playSound() {
 }
 
 // Get all buttons that should play the sound
-const buttons = document.querySelectorAll('.button, .button2, .button3, .button4, .button5, .button6');
+const buttons = document.querySelectorAll('.mute-button,.button, .button2, .button3, .button4, .button5, .button6, .top_button1, .top_button2, .top_button3, .top_button4');
 
 // Add event listener to each button
 buttons.forEach(button => {
