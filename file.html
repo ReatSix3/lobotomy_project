@@ -3,14 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Click to Reveal Coordinates</title>
+<title>ReatSix3</title>
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-
-
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet"><style>
   /* Container to center the shape */
   .container {
     display: flex;
@@ -18,6 +15,15 @@
     align-items: center;
     height: 100vh;
     background-color: #f0f8ff;
+  }
+  .main-screen{
+    position: absolute;
+    top: 83px;
+    left: 265px;
+    width: 1255px;
+    height: 720px;
+    background-color: black;
+    border: 2.5px solid #e3e39a;
   }
 
   /* Slanted rectangle */
@@ -35,8 +41,6 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* font-weight: bold; */
-    
   }
   .slanted-rectangle .big-letter {
     font-family: 'Anton', sans-serif; /* Using Anton font */
@@ -91,15 +95,6 @@
     background-color: black;
     border: 2.5px solid #1bde97;
   }
-  .main-screen{
-    position: absolute;
-    top: 83px;
-    left: 265px;
-    width: 1255px;
-    height: 720px;
-    background-color: black;
-    border: 2.5px solid #e3e39a;
-  }
   .introduction{
     display: flex;
     position: absolute;
@@ -113,52 +108,53 @@
     font-size: 38px;
     font-family: 'Anton', sans-serif;
     letter-spacing: 7.5px;
-    justify-content: center; /* Centers the content horizontally */
-    align-items: center; /* Centers the content vertically */
-    text-align: center; /* Center-aligns text inside the box */
-  }
-  .intro-text1, .intro-text2, .intro-text3{
-    display: flex;
-    position: absolute;
-    height: 200px;
-    width: 750px;
-    background-color: black;
-    color:#1bde97;
-    font-size: 20px;
-    font-family: 'Noto Sans', sans-serif;
-  }
-  .intro-text1{
-    top: 227px;
-    left: 333px;
-  }
-  .intro-text2{
-    top: 357px;
-    left: 333px;
-  }
-  .intro-text3{
-    top: 487px;
-    left: 333px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
   .intro-potrait{
     top: 255px;
-    left: 1148px;
+    left: 1108px;
     display: flex;
     position: absolute;
     height: 350px;
     width: 300px;
     background-color: black;
     border: 2.5px solid #e3e39a;
-    justify-content: center; /* Center image horizontally */
-    align-items: center; /* Center image vertically */
-    overflow: hidden; /* Hide any overflow from the image */
-  }
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }    
+  .floating-square {
+      width: 20px;
+      height: 20px;
+      background-color: #1bde97;
+      position: absolute;
+      bottom: 0;
+      opacity: 0.8;
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+
   .intro-potrait img {
-    width: 100%; /* Scale image to fit width of container */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: auto;
   }
   .intro-text {
     top: 630px;
-    left: 1245px;
+    left: 1205px;
     display: flex;
     position: absolute;
     background-color: black;
@@ -166,51 +162,43 @@
     font-family: 'Anton', sans-serif;
     letter-spacing: 7.5px;
     font-size: 48px;
-    justify-content: center; /* Centers the content horizontally */
-    align-items: center; /* Centers the content vertically */
-    text-align: center; /* Center-aligns text inside the box */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     display: inline-block; 
   }
   .intro-text-line {
     position: absolute;
-    top: 700px; /* Position just below the .intro-text */
-    left: 1242px; /* Align with the left edge of .intro-text */
-    width: 110px; /* Adjust width as needed */
-    height: 2.5px; /* Line thickness */
+    top: 700px;
+    left: 1202px;
+    width: 110px;
+    height: 2.5px;
     border-top:#1bde97;
-    background-color: #1bde97; /* Line color */
+    background-color: #1bde97;
   }
-  .button, .button2, .button3, .button4, .button5, .button6 {
+  .button1, .button2, .button3, .button4, .button5, .button6 {
     display: flex;
     position: absolute;
     background-color: black;
     border: 2.5px solid #1bde97;
     width: 215px;
-    height: 60px; /* Set height to 60px for all buttons */
+    height: 60px;
     left: 25px;
     font-family: 'Noto Sans', sans-serif;
     font-size: 24px;
     color:#1bde97;
     font-weight: bold;
-    justify-content: center; /* Centers the content horizontally */
-    align-items: center; /* Centers the content vertically */
-    text-align: center; /* Center-aligns text inside the box */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-  .button:hover, .button2:hover, .button3:hover, .button4:hover, .button5:hover, .button6:hover {
+  .button1:hover, .button2:hover, .button3:hover, .button4:hover, .button5:hover, .button6:hover {
     background-color: #71754a;
     border: 2.5px solid #fdfea3;
     color: #fdfea3;
 }
-  .back_button {
-    display: flex;
-    position: absolute;
-    background-color: black;
-    border: 2.5px solid #1bde97;
-    width: 100px;
-    height: 60px;
-  }
   /* Positioning for each button */
-  .button { top: 185px; }
+  .button1 { top: 185px; }
   .button2 { top: 275px; }
   .button3 { top: 365px; }
   .button4 { top: 455px; }
@@ -225,13 +213,13 @@
     font-size: 24px;
     color:#1bde97;
     font-weight: bold;
-    justify-content: center; /* Centers the content horizontally */
-    align-items: center; /* Centers the content vertically */
-    text-align: center; /* Center-aligns text inside the box */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
   .top_button1, .top_button2, .top_button3{
     width: 160px;
-    height: 50px; /* Set height to 60px for all buttons */
+    height: 50px;
   }
   .top_button4{
     width: 200px;
@@ -251,10 +239,10 @@
     position: absolute;
     background-color: black;
     color: #1bde97;
-    font-family: 'Anton', sans-serif; /* Using Anton font */
+    font-family: 'Anton', sans-serif;
     font-size: 64px;
-    top: 735.5px;
-    left: 1437px;
+    top: 736.5px;
+    left: 1433px;
     width: 100px;
     height: 60px;
   }
@@ -269,7 +257,7 @@
     background-color: black;
     cursor: pointer;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Prevents scrolling */
+    overflow: hidden;
   }
 
   /* Style for coordinate display */
@@ -282,35 +270,34 @@
     border: 5px solid #1bde97;
     color: #fff;
     border-radius: 5px;
-    pointer-events: none; /* Allows clicking through the coordinates box */
+    pointer-events: none;
   }
-
   .neon-glow {
       position: fixed;
-      bottom: -30px; /* Position from the bottom of the screen */
+      bottom: -30px;
       left: 50%;
       transform: translateX(-50%);
       width: 100%;
-      height: 70px; /* Increase this value to make it taller */
+      height: 70px;
       background-color: #1bde97;
       box-shadow: 0 0 15px #1bde97, 0 0 30px #1bde97, 0 0 45px #1bde97, 0 0 60px #1bde97;
-      opacity: 0.35; /* Adjust opacity as needed */
+      opacity: 0.35;
     }
   .neon-glow3 {
-    position: absolute; /* Position relative to the body */
+    position: absolute;
     top: 75px;
     left: -20px;
     width: 1250px;
     height: 95px;
     background-color: #1bde97;
     box-shadow: 0 0 15px #1bde97, 0 0 30px #1bde97, 0 0 45px #1bde97, 0 0 60px #1bde97;
-    opacity: 0.35; /* Adjust opacity as needed */
-    transform: rotate(-15deg); /* Rotate to create the slanted effect */
-    transform-origin: top left; /* Set the rotation origin to top-left */
+    opacity: 0.35;
+    transform: rotate(-15deg);
+    transform-origin: top left;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff; /* Text color */
+    color: #fff;
     font-size: 32px;
     font-family: Arial, sans-serif;
     text-align: center;
@@ -331,155 +318,784 @@
       cursor: pointer;
     }
   .mute-button.unmuted:hover #mute-icon {
-    content: url("unmute_button5_2.png"); /* Image for hover when unmuted */
+    content: url("unmute_button5_2.png");
   }
 
   /* Hover effect for muted state */
   .mute-button.muted:hover #mute-icon {
-    content: url("mute_button5_2.png"); /* Image for hover when muted */
+    content: url("mute_button5_2.png");
   }
+  .content-area {
+    position: absolute;
+    top: 190px;
+    left: 365px;
+    width: 600px;
+    height: 400px;
+    padding: 20px;
+    color: #1bde97;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    background-color: black;
+    overflow-y: auto;
+    overflow: hidden; /* Prevent scroll bars within this content area */
+  }
+
+#content-area {
+  overflow-y: scroll; /* Enable scrolling */
+}
+ul {
+  list-style-type: disc; /* Sets the bullet style */
+  padding-left: 30px; /* Indent the entire list */
+}
+
+li {
+  margin-bottom: 10px; /* Adds space between bullet points */
+}
+
+#content-area::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+/* Hide scrollbar for Firefox */
+#content-area {
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+/* Hide scrollbar for Internet Explorer and older Edge */
+#content-area {
+  -ms-overflow-style: none; /* Hide scrollbar for Internet Explorer and older Edge */
+}
+  #content-area h2 {
+  font-size: 48px; /* Increase font size */
+  font-weight: bold; /* Make it bold */
+  color: #1bde97; /* Match the theme color */
+  margin-bottom: 20px; /* Add some space below the header */
+  }
+  .content-area2 {
+    position: absolute;
+    top: 85px;
+    left: 265px;
+    width: 1205px;
+    height: 670px;
+    background-color: black;
+    border: 2.5px solid #e3e39a;
+    padding: 20px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    background-color: black;
+    overflow-y: auto;
+  }
+  .title-area {
+    position: absolute;
+    top: 96px;
+    left: 791px;
+    width: 200px;
+    height: 100px;
+    background-color: black;
+    color:#1bde97;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 38px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+  }
+  .description1, .description2 {
+    display: none;
+    position: absolute;
+    top: 520px;
+    width: 375px;
+    height: 100px;
+    color: #1bde97;
+    background-color: transparent;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .description1 {
+    left: 405px;
+  }
+  .description2 {
+    left: 1005px;
+  }
+  .description1 h2, .description2 h2 , #discord-text h2, #gmail-text h2 {
+    font-size: 28px; /* Adjust size as needed */
+    color: #1bde97; /* Match color to theme */
+    font-weight: bold;
+}  
+.description1 h2, .description2 h2 {
+    margin-bottom: 10px; /* Space between heading and paragraph */
+}
+#discord-text h2, #gmail-text h2 {
+    margin-bottom: -5px; /* Space between heading and paragraph */
+}
+
+
+.description1 p, .description2 p {
+    font-size: 18px; /* Adjust paragraph font size as needed */
+    color: #1bde97;
+}
+.experience-1, .experience-2, .experience-3 {
+    font-size: 18px;
+    color: #1bde97;
+    background-color: transparent;
+    font-family: 'Noto Sans', sans-serif;
+    position: absolute;
+    width: 500px;
+    height: 137px;
+}
+
+.experience-1, .experience-3 {
+    text-align: left; /* Left-align text */
+}
+
+.experience-2 {
+    text-align: right; /* Right-align text */
+}
+
+.experience-1 h3, .experience-2 h3, .experience-3 h3 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #1bde97;
+    border-bottom: 1px solid #1bde97; /* Underline header */
+    margin-bottom: 8px;
+}
+
+.experience-1 ul, .experience-2 ul, .experience-3 ul {
+    list-style-type: disc; /* Bullet points */
+    padding-left: 20px;
+    margin: 0;
+}
+
+.experience-1 li, .experience-2 li, .experience-3 li {
+    margin-bottom: 8px; /* Space between bullet points */
+    line-height: 1.5;
+}
+.experience-title {
+  position: absolute;
+  left: 388px;
+  top: 141px;
+  color: #1bde97;
+  font-weight: bold;
+  font-size: 48px;
+  font-family: 'Noto Sans', sans-serif;
+  background-color: transparent;
+  display: none; /* Hide by default */
+}
 </style>
 </head>
 <body>
-    <div class="container">
-        <div class="main-screen"></div>
+  <div class="container">
+    <div class="main-screen"></div>     
+    <div id="content-area" class="content-area">
+    </div>   
+    <div id="title-area" class="title-area">
+      <!-- Title for each button will appear here -->
+    </div>
+</div>
+        <p>Welcome! Click on the menu buttons to learn more.</p>
+      </div>
         <div class="menu2-bar"></div>
         <div class="menu-bar"></div>
         <div class="neon-glow2"></div>
-        <div class="top_button1">Profile</div>
-        <div class="top_button2">Projects</div>
-        <div class="top_button3">Resume</div>
-        <div class="top_button4">Suggestions</div>
+        <!-- Top buttons -->
+        <!-- Top buttons with onclick handlers to switch sidebar content -->
+        <div class="top_button1" onclick="changeSidebar('profile')">Profile</div>
+        <div class="top_button2" onclick="changeSidebar('portofolio')">Portofolio</div>
+        <div class="top_button3" onclick="changeSidebar('achievements')">Achievements</div>
+        <div class="top_button4" onclick="changeSidebar('FAQ')">FAQ</div>
         <div class="neon-glow3"></div>
         <div class="slanted-rectangle">
           <span class="big-letter">P</span><span class="small-text">rofile</span>
         </div>
-        <div class="button">1. Introduction</div>
-        <div class="button2">2. About Me</div>
-        <div class="button3">3. Skills</div>
-        <div class="button4">4. Projects</div>
-        <div class="button5">5. Experience</div>
-        <div class="button6">6. Contact</div>
+        <div class="button1" onclick="updateContent('profile', 'button1')">1. Introduction</div>
+        <div class="button2" onclick="updateContent('profile', 'button2')">2. About Me</div>
+        <div class="button3" onclick="updateContent('profile', 'button3')">3. Skills</div>
+        <div class="button4" onclick="updateContent('profile', 'button4')">4. Projects</div>
+        <div class="button5" onclick="updateContent('profile', 'button5')">5. Experience</div>
+        <div class="button6" onclick="updateContent('profile', 'button6')">6. Contact</div>
+        
         <div class="neon-glow"></div>
         <div class="neon-glow"></div>
         <div class="slanted-rectangle2">Exit</div>
-        <div class="version_button">v1.0</div>
-        <div class="introduction"> INTRODUCTION</div>
-        <div class="intro-text1">
-          <p>Hi there! I'm ReatSix3, you can call me Reat. I'm  a commited and creative individual with a passion in programming, 
-            technology, and innovation. With a background in software engineer and web development.
-            I bring both technical expertise and a unique perspective to every project I undertake. I believe in pushing boundaries 
-            and exploring new ideas to create impactful solutions.
-          </p>
+        <div class="version_button">v1.0</div>     
+        <div class="intro-potrait" id="intro-portrait"> <!-- I CHANGE THIS -->
+          <img src="BL_sault.jpg" alt="Portrait Image">
         </div>
-        <div class="intro-text2">  
-          <p>Here, you’ll find highlights of my journey so far, from key projects and accomplishments to skills I continue to 
-            . I’m always on the lookout for new challenges and opportunities to collaborate with like-minded individuals who 
-            share my enthusiasm for growth and creativity.
-        </p>
-      </div>
-          <div class="intro-text3">
-            <p>Dive in to learn more about me and feel free to reach out if you're 
-              interested in connecting or collaborating. Let's build something remarkable together!
-          </p>
-        </div>
-        <div class="intro-potrait">
-          <img src="ring_sang_potrait.jpg" alt="Portrait Image">
-        </div>
+            
         <div class="intro-text">REAT</div>
         <div class="intro-text-line"></div>
-
-      
-<!-- Coordinate display element -->
-  <!-- Mute/Unmute Button -->
-    <button class="mute-button" onclick="toggleMute()">
+  <button class="mute-button" onclick="toggleMute()">
       <img id="mute-icon" src="unmute_button5.png" alt="Mute Button" width="80" height="50">
   </button>
 
-  <div id="coordinates">Click anywhere to get coordinates</div>
-  
-  <!-- Audio elements -->
-  <audio id="click_sound" src="click_sound.mp3" preload="auto"></audio>
+ <!-- <div id="coordinates">Click anywhere to get coordinates</div> -->
+  <div class="description1" id="description1">
+    <p>"I've learned Python, C++, JavaScript, HTML, and CSS. I'm fluent in English and currently learning Japanese."</p>
+  </div>
+  <div class="description2" id="description2">
+    <p>"Creative, adaptable, and driven by curiosity. Skilled in problem-solving, critical thinking, self-motivation, and resilience."</p>
+  </div>
+
+  <audio id="hover_sound" src="click_sound.mp3" preload="auto"></audio>
   <audio id="background-music" src="main_menu_theme.mp3" loop></audio>
+  <audio id="clicked_sound" src="clicked_sound.mp3" preload="auto"></audio>
   <script>
 
-  // Function to toggle mute/unmute
-  document.getElementById("background-music").volume = 0.45;
-
-// Mute/Unmute Function
     const backgroundMusic = document.getElementById("background-music");
-    backgroundMusic.volume = 0.45;
     const muteIcon = document.getElementById("mute-icon");
     const muteButton = document.querySelector(".mute-button");
+    const clickedSound = document.getElementById("clicked_sound");
+    const hoverSound = document.getElementById('hover_sound');
 
-  // Attempt to autoplay on load; may be blocked in some browsers
+    backgroundMusic.volume = 0.45;
+
     window.addEventListener("load", () => {
-        if (backgroundMusic.muted) {
-          muteButton.classList.add("muted");
-          muteIcon.src = "mute_button5.png";
-        } else {
-          muteButton.classList.add("unmuted");
-          muteIcon.src = "unmute_button5.png";
-        }
-    
-        backgroundMusic.play().catch(() => {
-          console.log("Autoplay blocked; waiting for user interaction.");
-        });
-      });
-
-  // Fallback to play audio on user interaction if autoplay is blocked
-  document.addEventListener("click", () => {
-    if (backgroundMusic.paused) {
-      backgroundMusic.play().catch(error => console.log(error));
-    }
-  });
-
-  // Function to toggle mute/unmute
-      function toggleMute() {
-        if (backgroundMusic.muted) {
-          backgroundMusic.muted = false;
-          muteIcon.src = "unmute_button5.png"; // Default unmuted icon
-          muteButton.classList.remove("muted");
-          muteButton.classList.add("unmuted");
-        } else {
-          backgroundMusic.muted = true;
-          muteIcon.src = "mute_button5.png"; // Default muted icon
-          muteButton.classList.remove("unmuted");
-          muteButton.classList.add("muted");
-        }
+      if (backgroundMusic.muted) {
+        muteButton.classList.add("muted");
+        muteIcon.src = "mute_button5.png";
+      } else {
+        muteButton.classList.add("unmuted");
+        muteIcon.src = "unmute_button5.png";
       }
-// Get the audio element
-const hoverSound = document.getElementById('click_sound');
+      backgroundMusic.play().catch(() => {
+        console.log("Autoplay blocked; waiting for user interaction.");
+      });
+    });
 
-// Function to play sound
-function playSound() {
-  hoverSound.currentTime = 0; // Reset audio to the start
-  hoverSound.play(); // Play the audio
-}
+    document.addEventListener("click", () => {
+      if (backgroundMusic.paused) {
+        backgroundMusic.play().catch(error => console.log(error));
+      }
+    });
 
-// Get all buttons that should play the sound
-const buttons = document.querySelectorAll('.mute-button,.button, .button2, .button3, .button4, .button5, .button6, .top_button1, .top_button2, .top_button3, .top_button4');
+    function toggleMute() {
+      if (backgroundMusic.muted) {
+        backgroundMusic.muted = false;
+        muteIcon.src = "unmute_button5.png";
+        muteButton.classList.remove("muted");
+        muteButton.classList.add("unmuted");
+      } else {
+        backgroundMusic.muted = true;
+        muteIcon.src = "mute_button5.png";
+        muteButton.classList.remove("unmuted");
+        muteButton.classList.add("muted");
+      }
+    }
 
-// Add event listener to each button
-buttons.forEach(button => {
-  button.addEventListener('mouseenter', playSound);
-});
-  // Select the coordinate display element
+    function playHoverSound() {
+      hoverSound.currentTime = 0;
+      hoverSound.play().catch(error => console.log("Hover sound playback error:", error));
+    }
+
+    function playClickedSound() {
+      clickedSound.currentTime = 0;
+      clickedSound.play().catch(error => console.log("Clicked sound playback error:", error));
+    }
+
+    const buttons1 = document.querySelectorAll('.button1, .button2, .button3, .button4, .button5, .button6, .top_button1, .top_button2, .top_button3, .top_button4');
+    buttons1.forEach(button => {
+      button.addEventListener('click', playClickedSound);
+    });
+    const buttons2 = document.querySelectorAll('.mute-button, .button1, .button2, .button3, .button4, .button5, .button6, .top_button1, .top_button2, .top_button3, .top_button4');
+    buttons2.forEach(button => {
+      button.addEventListener('mouseenter', playHoverSound);
+    });
+
   const coordinatesDisplay = document.getElementById('coordinates');
 
-  // Add click event listener to the document body
   document.body.addEventListener('click', (event) => {
-    // Get X and Y coordinates of the click relative to the viewport
     const x = event.clientX;
     const y = event.clientY;
-
-    // Update the coordinate display text
     coordinatesDisplay.textContent = `X: ${x}, Y: ${y}`;
-
-    // Position the display near the click, offset slightly
     coordinatesDisplay.style.left = `${x + 10}px`;
     coordinatesDisplay.style.top = `${y + 10}px`;
-  });
+  });    
+  const sidebarData = {
+    profile: {
+      buttons: ["Introduction", "About Me", "Skills", "Projects", "Experience", "Contact"],
+      content: {
+        button1: {
+          title: "",
+          content: `
+            <h2>Introduction</h2>
+            <ul>
+              <li>Hi, I’m ReatSix3, but you can call me Reat. I’m an 18-year-old Computer Science major with experience as a Software Engineer and Web Developer.</li>
+              <li>This website is my personal space to showcase my skills, projects, and growth as a developer. Here, you’ll find the work I’ve done, the challenges I’ve overcome, and the journey I’m on to build my ideal career in tech.</li>
+            </ul>`
+        },
+        button2: {
+          title: "",
+          content: `
+            <h2>About Me</h2>
+            <ul>
+              <li>I’m an 18-year-old Computer Science major with experience as a Software Engineer and Web Developer. I’m known for being hardworking and committed, always pushing myself to learn and grow.</li>
+              <li>My strengths include attention to detail, creativity, and resilience in tackling challenges. I’m highly adaptable, quick to learn new skills, and constantly improving my problem-solving abilities. This website is my platform to showcase my journey, skills, and projects as I work toward building my ideal career in tech.</li>
+            </ul>`
+        },
+        button3: { title: "<h2>Skills</h2>", content: `<ul></ul>` },
+        button4: { title: "<h2>Projects</h2>", content: `<ul></ul>` },
+        button5: {
+          title: "",
+          content: `
+            <h2></h2>
+            <ul>
+            </ul>`
+        },
+        button6: {
+          title: "<h2>Contact</h2>",
+          content: `
+            <ul>         </ul>`
+        }
+      }
+    },
+    portofolio: {
+      buttons: ["Featured Projects", "Links", "", "", "", ""],
+      content: {
+        button1: {
+          title: "",
+          content: `
+            <h2>Featured Projects</h2>
+            <h3>ReatSix3.org</h3>
+            <ul>
+              <li>Basically, a website I made to showcase my profiles, projects, skills, etc.</li>
+              <li>This project’s layout was inspired by <i>Lobotomy Corporation</i> and <i>Library of Ruina</i>, both by Project Moon.</li>
+              <li>The languages used include: JavaScript, HTML, CSS.</li>
+              <li>This project took me 2 weeks to complete.</li>
+              <li>So far, I feel satisfied with the outcome and plan to make additional changes to improve the website further.</li>
+            </ul>`
+        },
+        button2: { title: "<h2>Links</h2>", content: "</li></ul>" }
+      }
+    },
+    achievements: {
+      buttons: ["Competitions and Awards", "Skill Milestones", "", "", "", ""],
+      content: {
+        button1: {
+          title: "",
+          content: `
+            <h2>Competitions and Awards</h2>
+            <h3>Competition</h3>
+            <ul>
+              <li>Participated in the Data Science competition 'Data Royale' and achieved a finalist position.</li>
+              <li>This experience taught me valuable skills in adaptability, critical thinking, and problem-solving.</li>
+            </ul>
+            <h3>Awards</h3>
+            <ul>
+              <li>Finalist in 'Data Royale' competition.</li>
+              <li>Earned the highest score in 'Calculus 1' midterm among my IUP (International Undergraduate Program) batch, a core requirement for Computer Science students—a milestone I’m proud of.</li>
+            </ul>`
+        },
+        button2: {
+          title: "",
+          content: `
+            <h2>Skill Milestones</h2>
+            <h3>Python</h3>
+            <ul>
+              <li>Intermediate level: Worked with libraries like pandas, numpy, and tkinter.</li>
+              <li>Developed 'One Piece Clicker', which, though unfinished, marked a significant milestone in reaching an intermediate level in Python.</li>
+            </ul>
+            <h3>C++</h3>
+            <ul>
+              <li>Intermediate level: Began learning in my first semester of college.</li>
+              <li>Gained a solid understanding of functions in C++ and developed custom functions, which sharpened my programming skills.</li>
+            </ul>`
+        }
+      }
+    },
+    FAQ: {
+      buttons: ["FAQ", "", "", "", "", ""],
+      content: {
+        button1: {
+          title: "",
+          content: `
+            <h2>FAQ</h2>
+            <h3>What inspired you to start coding?</h3>
+            <p>I like math, math has puzzle-like vibe. Coding is basically like math. The feeling while solving a puzzle is so satisfying. Also the fact that I can be creative as much as possible as I can make anything by learning how to code.</p>
+            <h3>Which project are you most proud of?</h3>
+            <p>I’d say this website is the project I’m most proud of. It feels like the start of my journey toward what I’d consider my 'ideal' life—a space where I can showcase my work, reflect on my growth, and keep building toward my goals.</p>
+            <h3>How do you keep your skills up to date?</h3>
+            <p>Keep working on projects—simple as that. Use any tools that help you along the way. ChatGPT? Absolutely, as long as you take the time to understand what each line of syntax means.</p>`
+        }
+      }
+    }
+  };
+
+  // Function to change sidebar content based on the top button clicked
+
+
+
+  // Function to update the content area and title area
+  function togglePortraitVisibility(section, buttonId) {
+    const introPortrait = document.getElementById("intro-portrait"); // Portrait image
+    const introText = document.querySelector(".intro-text"); // Intro text
+    const introTextLine = document.querySelector(".intro-text-line"); // Intro line
+
+    // Show portrait and text only if "Profile" section and specific buttons are clicked
+    if (section === 'profile' && (buttonId === 'button1' || buttonId === 'button2')) {
+        introPortrait.style.display = "flex"; // Show portrait
+        introText.style.display = "flex"; // Show text
+        introTextLine.style.display = "block"; // Show line
+
+        // Change image source based on buttonId
+        if (buttonId === 'button2') {
+            introPortrait.querySelector('img').src = "dieci_sang.jpg"; // Set image to dieci_sang.jpg for "About Me"
+        } else {
+            introPortrait.querySelector('img').src = "BL_sault.jpg"; // Set image to BL_sault.jpg for other sections
+        }
+    } else {
+        introPortrait.style.display = "none"; // Hide portrait
+        introText.style.display = "none"; // Hide text
+        introTextLine.style.display = "none"; // Hide line
+    }
+}
+function showDescriptions(section, buttonId) {
+    const description1 = document.getElementById("description1");
+    const description2 = document.getElementById("description2");
+
+    // Hide descriptions and remove images by default
+    description1.style.display = "none";
+    description2.style.display = "none";    const existingSkills1 = document.getElementById("skills1-img");
+    const existingSkills2 = document.getElementById("skills2-img");
+    const featuredImage = document.getElementById("featured-img"); 
+    const discordImage = document.getElementById("discord-img"); 
+    const gmailImage = document.getElementById("gmail-img"); 
+    const discordText = document.getElementById("discord-text"); 
+    const gmailText = document.getElementById("gmail-text"); 
+    const githubImage = document.getElementById("github-img"); // GitHub image
+    const githubText = document.getElementById("github-text"); // GitHub text
+
+    if (existingSkills1) existingSkills1.remove();
+    if (existingSkills2) existingSkills2.remove();
+    if (featuredImage) featuredImage.remove();
+    if (discordImage) discordImage.remove();
+    if (gmailImage) gmailImage.remove();
+    if (discordText) discordText.remove();
+    if (gmailText) gmailText.remove();
+    if (githubImage) githubImage.remove(); // Remove GitHub image
+    if (githubText) githubText.remove(); // Remove GitHub text
+
+
+    // Show descriptions and images based on the section and button ID
+    if (section === 'profile') {
+        if (buttonId === 'button3') { // Skills button
+            description1.style.display = "block";
+            description1.innerHTML = `
+                <h2>Hardskills</h2>
+                <p>"I've learned Python, C++, JavaScript, HTML, and CSS. I'm fluent in English and currently learning Japanese."</p>
+            `;
+
+            description2.style.display = "block";
+            description2.innerHTML = `
+                <h2>Softskills</h2>
+                <p>"Creative, adaptable, and driven by curiosity. Skilled in problem-solving, critical thinking, self-motivation, and resilience."</p>
+            `;
+
+            // Create and position skills1.png
+            const skills1 = document.createElement("img");
+            skills1.src = "skills1.png";
+            skills1.id = "skills1-img";
+            skills1.style.position = "absolute";
+            skills1.style.left = "434px";
+            skills1.style.top = "273px";
+            skills1.style.width = "344px";
+            skills1.style.height = "280px";
+            document.body.appendChild(skills1);
+
+            // Create and position skills2.png
+            const skills2 = document.createElement("img");
+            skills2.src = "skills2.png";
+            skills2.id = "skills2-img";
+            skills2.style.position = "absolute";
+            skills2.style.left = "1014px";
+            skills2.style.top = "273px";
+            skills2.style.width = "344px";
+            skills2.style.height = "280px";
+            document.body.appendChild(skills2);
+
+        } else if (buttonId === 'button4') { // Projects button
+            description1.style.display = "block";
+            description1.innerHTML = `
+                <h2>ReatSix3.org</h2>
+                <p>“A personal website showcasing my skills, projects, and growth as a developer and designer. Built to reflect my passion for coding and creativity.”</p>`;
+
+            description2.style.display = "block";
+            description2.innerHTML = `
+                <h2>One Piece Clicker</h2>
+                <p>"A click-based game inspired by One Piece, developed to explore game mechanics and sharpen my coding skills. A fun project in interactive programming."</p>`;
+
+            // Create and position project1 image with border
+            const project1 = document.createElement("img");
+            project1.src = "project1.png";
+            project1.id = "skills1-img";
+            project1.style.position = "absolute";
+            project1.style.left = "384px";
+            project1.style.top = "273px";
+            project1.style.width = "430px";
+            project1.style.height = "229px";
+            project1.style.border = "2.5px solid #e3e39a";
+            document.body.appendChild(project1);
+
+            // Create and position project2 image with border
+            const project2 = document.createElement("img");
+            project2.src = "project2.png";
+            project2.id = "skills2-img";
+            project2.style.position = "absolute";
+            project2.style.left = "1014px";
+            project2.style.top = "273px";
+            project2.style.width = "344px";
+            project2.style.height = "229px";
+            project2.style.border = "2.5px solid #e3e39a";
+            document.body.appendChild(project2);
+
+          } else if (buttonId === 'button6') { // Contact button
+            // Create and position discord.png
+            const discord = document.createElement("img");
+            discord.src = "discord.png";
+            discord.id = "discord-img";
+            discord.style.position = "absolute";
+            discord.style.left = "550px";
+            discord.style.top = "283px";
+            discord.style.width = "227px";
+            discord.style.height = "227px";
+            document.body.appendChild(discord);
+
+            // Add text below discord.png
+            const discordText = document.createElement("div");
+            discordText.id = "discord-text";
+            discordText.style.position = "absolute";
+            discordText.style.left = "593.5px";
+            discordText.style.top = "525px"; // Positioned below the image
+            discordText.innerHTML = `<h2>Discord</h2><p>ID : reatsix3</p>`;
+            discordText.style.color = "#1bde97";
+            discordText.style.fontSize = "24px";
+            discordText.style.fontFamily = "'Noto Sans', sans-serif";
+            discordText.style.textAlign = "center"; // Center justify text
+
+            document.body.appendChild(discordText);
+
+            // Create and position gmail.png
+            const gmail = document.createElement("img");
+            gmail.src = "gmail.png";
+            gmail.id = "gmail-img";
+            gmail.style.position = "absolute";
+            gmail.style.left = "1040px";
+            gmail.style.top = "303px";
+            gmail.style.width = "240px";
+            gmail.style.height = "180px";
+            document.body.appendChild(gmail);
+
+            // Add text below gmail.png
+            const gmailText = document.createElement("div");
+            gmailText.id = "gmail-text";
+            gmailText.style.position = "absolute";
+            gmailText.style.left = "1044px";
+            gmailText.style.top = "525px"; // Positioned below the image
+            gmailText.innerHTML = `<h2>Gmail</h2><p>reatsix3@gmail.com</p>`;
+            gmailText.style.color = "#1bde97";
+            gmailText.style.fontSize = "24px";
+            gmailText.style.textAlign = "center"; // Center justify text
+            gmailText.style.fontFamily = "'Noto Sans', sans-serif";
+            document.body.appendChild(gmailText);
+        }
+
+   else if (section === 'portofolio' && buttonId === 'button1') { // Featured Projects button in Portofolio section
+        // Create and position featured.png
+        const featured = document.createElement("img");
+        featured.src = "featured.png";
+        featured.id = "featured-img";
+        featured.style.position = "absolute";
+        featured.style.left = "1034px";
+        featured.style.top = "336px";
+        featured.style.width = "430px"; // Adjust size if needed
+        featured.style.height = "244px"; // Adjust size if needed
+        featured.style.border = "2.5px solid #e3e39a"
+        document.body.appendChild(featured);
+    }
+
+    }
+
+    else if (section === 'portofolio' && buttonId === 'button2') { // Links button in Portofolio section
+        // Create and position github.jpg as a link
+        const githubLink = document.createElement("a");
+        githubLink.href = "https://github.com/reatsix3";
+        githubLink.target = "_blank"; // Opens in a new tab
+
+        const githubImage = document.createElement("img");
+        githubImage.src = "github.jpg";
+        githubImage.id = "github-img";
+        githubImage.style.position = "absolute";
+        githubImage.style.left = "763px";
+        githubImage.style.top = "283px";
+        githubImage.style.width = "250px"; // Adjust as needed
+        githubImage.style.height = "250px"; // Adjust as needed
+
+        githubLink.appendChild(githubImage);
+        document.body.appendChild(githubLink);
+
+        // Add "GitHub" text below the image as a link
+        const githubText = document.createElement("a");
+        githubText.href = "https://github.com/reatsix3";
+        githubText.target = "_blank"; // Opens in a new tab
+        githubText.id = "github-text";
+        githubText.style.position = "absolute";
+        githubText.style.left = "812px";
+        githubText.style.top = "529px"; // Position below the image
+        githubText.style.color = "#1bde97";
+        githubText.style.fontSize = "28px";
+        githubText.style.fontFamily = "'Noto Sans', sans-serif";
+        githubText.style.textAlign = "center";
+        githubText.innerHTML = "<h2>GitHub</h2>";
+
+        document.body.appendChild(githubText);
+    }
+
+  }
+  function showExperienceContent() {
+    // Remove any existing experience elements to avoid duplicates
+    const existingExperiences = document.querySelectorAll('.experience-1, .experience-2, .experience-3');
+    existingExperiences.forEach(exp => exp.remove());
+
+    // Create experience-1 element
+    const experience1 = document.createElement('div');
+    experience1.className = 'experience-1';
+    experience1.style.position = 'absolute';
+    experience1.style.left = '388px';
+    experience1.style.top = '213px';
+    experience1.innerHTML = `
+        <h3>SoftEng & WebDeveloper</h3>
+        <ul>
+          <li>I have experience as a Software Engineer and Web Developer, where I honed my skills in coding, application development, and problem-solving across various projects.</li>
+        </ul>`;
+    document.body.appendChild(experience1);
+
+    // Create experience-2 element
+    const experience2 = document.createElement('div');
+    experience2.className = 'experience-2';
+    experience2.style.position = 'absolute';
+    experience2.style.left = '944px';
+    experience2.style.top = '371px';
+    experience2.innerHTML = `
+        <h3>Data Science Competition Finalist</h3>
+        <ul>
+          <li>As a finalist in a data science competition, I gained valuable insights into data analysis and critical thinking, strengthening my resilience and adaptability.</li>
+        </ul>`;
+    document.body.appendChild(experience2);
+
+    // Create experience-3 element
+    const experience3 = document.createElement('div');
+    experience3.className = 'experience-3';
+    experience3.style.position = 'absolute';
+    experience3.style.left = '388px';
+    experience3.style.top = '529px';
+    experience3.innerHTML = `
+        <h3>Staff Member in Game Community</h3>
+        <ul>
+          <li>Serving as a staff member in a Roblox game community taught me effective communication and community management, helping to create a positive, engaging environment.</li>
+        </ul>`;
+    document.body.appendChild(experience3);
+}
+function updateContent(section, buttonId) {
+    const contentArea = document.getElementById("content-area");
+    const titleArea = document.getElementById("title-area");
+
+    const { title, content } = sidebarData[section].content[buttonId];
+
+    titleArea.innerHTML = title;
+    contentArea.innerHTML = content;
+    togglePortraitVisibility(section, buttonId); // Show/hide portrait, text, and line based on button click and section
+    showDescriptions(section, buttonId); // Show descriptions if applicable
+
+    // Handle the Experience title and content display
+    let experienceTitle = document.querySelector('.experience-title');
+
+    if (section === 'profile' && buttonId === 'button5') {
+        // Show experience content
+        showExperienceContent();
+
+        // Create the experience title if it doesn't exist
+        if (!experienceTitle) {
+            experienceTitle = document.createElement('div');
+            experienceTitle.className = 'experience-title';
+            experienceTitle.textContent = 'Experience';
+            document.body.appendChild(experienceTitle);
+        }
+
+        // Ensure the title is displayed
+        experienceTitle.style.display = 'block';
+    } else {
+        // Remove experience elements if any other button is clicked
+        const existingExperiences = document.querySelectorAll('.experience-1, .experience-2, .experience-3');
+        existingExperiences.forEach(exp => exp.remove());
+
+        // Hide the experience title if it exists
+        if (experienceTitle) {
+            experienceTitle.style.display = 'none';
+        }
+    }
+}
+function updateSlantedRectangleTitle(section) {
+    const slantedRectangle = document.querySelector('.slanted-rectangle');
+    const bigLetter = section.charAt(0).toUpperCase();
+    const smallText = section.slice(1).toLowerCase();
+
+    slantedRectangle.innerHTML = `<span class="big-letter">${bigLetter}</span><span class="small-text">${smallText}</span>`;
+}
+
+// Modify the changeSidebar function to call updateSlantedRectangleTitle
+function changeSidebar(section) {
+    const sidebarButtons = document.querySelectorAll('.button1, .button2, .button3, .button4, .button5, .button6');
+    const buttonLabels = sidebarData[section].buttons;
+
+    // Update the slanted rectangle title
+    updateSlantedRectangleTitle(section);
+
+    sidebarButtons.forEach((button, index) => {
+        if (buttonLabels[index]) {
+            button.textContent = `${index + 1}. ${buttonLabels[index]}`;
+            button.setAttribute('onclick', `updateContent('${section}', 'button${index + 1}')`);
+            button.style.display = 'flex';
+        } else {
+            button.style.display = 'none';
+        }
+    });
+
+    updateContent(section, 'button1');
+}
+
+  // Set default section to 'profile' on page load
+  window.onload = () => {
+      updateContent('profile', 'button1'); // Loads 'Introduction' content by default
+    };
+
+  function createFloatingSquares() {
+    const numberOfSquares = 150; // Increased the number of squares
+    const screenWidth = window.innerWidth;
+
+    for (let i = 0; i < numberOfSquares; i++) {
+      // Create a new div for each square
+      const square = document.createElement('div');
+      square.classList.add('floating-square');
+
+      // Set a random position along the x-axis
+      square.style.left = Math.random() * screenWidth + 'px';
+
+      // Set a random duration and delay for the animation
+      const duration = 5 + Math.random() * 5; // Random duration between 5 and 10 seconds
+      const delay = Math.random() * -5; // Random delay to stagger animations
+      square.style.animationDuration = duration + 's';
+      square.style.animationDelay = delay + 's';
+
+      // Append the square to the body
+      document.body.appendChild(square);
+    }
+  }
+
+  // Run the function to create squares on page load
+  createFloatingSquares();
+
 </script>
 
 </body>

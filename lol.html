@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floating Squares</title>
+  <style>
+    /* Basic reset and background styling */
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #000000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Floating square style */
+    .floating-square {
+      width: 20px;
+      height: 20px;
+      background-color: #1bde97;
+      position: absolute;
+      bottom: 0;
+      opacity: 0.8;
+      animation: floatUp linear infinite;
+    }
+
+    /* Animation for floating up */
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  // Function to generate floating squares
+  function createFloatingSquares() {
+    const numberOfSquares = 150; // Increased the number of squares
+    const screenWidth = window.innerWidth;
+
+    for (let i = 0; i < numberOfSquares; i++) {
+      // Create a new div for each square
+      const square = document.createElement('div');
+      square.classList.add('floating-square');
+
+      // Set a random position along the x-axis
+      square.style.left = Math.random() * screenWidth + 'px';
+
+      // Set a random duration and delay for the animation
+      const duration = 5 + Math.random() * 5; // Random duration between 5 and 10 seconds
+      const delay = Math.random() * -5; // Random delay to stagger animations
+      square.style.animationDuration = duration + 's';
+      square.style.animationDelay = delay + 's';
+
+      // Append the square to the body
+      document.body.appendChild(square);
+    }
+  }
+
+  // Run the function to create squares on page load
+  createFloatingSquares();
+</script>
+
+</body>
+</html>
